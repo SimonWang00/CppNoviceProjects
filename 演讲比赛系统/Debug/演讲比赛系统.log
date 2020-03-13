@@ -1,0 +1,135 @@
+﻿  speechManager.cpp
+d:\demo\cpp\演讲比赛系统\演讲比赛系统\speechmanager.cpp(52): warning C4018: “<”: 有符号/无符号不匹配
+d:\demo\cpp\演讲比赛系统\演讲比赛系统\speechmanager.cpp(296): warning C4018: “<”: 有符号/无符号不匹配
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\numeric(26): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\numeric(36): note: 参见对正在编译的函数 模板 实例化“_Ty std::accumulate<_InIt,_Ty,std::plus<void>>(const _InIt,const _InIt,_Ty,_Fn)”的引用
+          with
+          [
+              _Ty=float,
+              _InIt=std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<double>>>,
+              _Fn=std::plus<void>
+          ]
+  d:\demo\cpp\演讲比赛系统\演讲比赛系统\speechmanager.cpp(157): note: 参见对正在编译的函数 模板 实例化“_Ty std::accumulate<std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<double>>>,float>(const _InIt,const _InIt,_Ty)”的引用
+          with
+          [
+              _Ty=float,
+              _InIt=std::_Deque_iterator<std::_Deque_val<std::_Deque_simple_types<double>>>
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1108): warning C4244: “参数”: 从“const double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1107): note: 参见对正在编译的函数 模板 实例化“bool std::_Debug_lt_pred<std::greater<int>&,const double&,const double&>(_Pr,_Ty1,_Ty2) noexcept(<expr>)”的引用
+          with
+          [
+              _Pr=std::greater<int> &,
+              _Ty1=const double &,
+              _Ty2=const double &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1154): note: 参见对正在编译的函数 模板 实例化“std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,int,_Pr,_Alloc,true>>::_Insert_nohint<_Value_type&,std::_Tree_node<_Value_type,std::_Default_allocator_traits<_Alloc>::void_pointer>*>(bool,_Valty,_Nodety)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Kty=double,
+              _Pr=std::greater<int>,
+              _Alloc=std::allocator<std::pair<const double,int>>,
+              _Value_type=std::pair<const double,int>,
+              _Valty=std::pair<const double,int> &,
+              _Nodety=std::_Tree_node<std::pair<const double,int>,std::_Default_allocator_traits<std::allocator<std::pair<const double,int>>>::void_pointer> *
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1156): note: 参见对正在编译的函数 模板 实例化“std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,int,_Pr,_Alloc,true>>::_Insert_nohint<_Value_type&,std::_Tree_node<_Value_type,std::_Default_allocator_traits<_Alloc>::void_pointer>*>(bool,_Valty,_Nodety)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Kty=double,
+              _Pr=std::greater<int>,
+              _Alloc=std::allocator<std::pair<const double,int>>,
+              _Value_type=std::pair<const double,int>,
+              _Valty=std::pair<const double,int> &,
+              _Nodety=std::_Tree_node<std::pair<const double,int>,std::_Default_allocator_traits<std::allocator<std::pair<const double,int>>>::void_pointer> *
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\map(559): note: 参见对正在编译的函数 模板 实例化“std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,int,_Pr,_Alloc,true>>::emplace<std::pair<double,int>>(std::pair<double,int> &&)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Kty=double,
+              _Pr=std::greater<int>,
+              _Alloc=std::allocator<std::pair<const double,int>>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\map(560): note: 参见对正在编译的函数 模板 实例化“std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,int,_Pr,_Alloc,true>>::emplace<std::pair<double,int>>(std::pair<double,int> &&)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Kty=double,
+              _Pr=std::greater<int>,
+              _Alloc=std::allocator<std::pair<const double,int>>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\map(574): note: 参见对正在编译的函数 模板 实例化“std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>> std::multimap<double,int,std::greater<int>,std::allocator<_Ty>>::emplace<std::pair<double,int>>(std::pair<double,int> &&)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\map(574): note: 参见对正在编译的函数 模板 实例化“std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>> std::multimap<double,int,std::greater<int>,std::allocator<_Ty>>::emplace<std::pair<double,int>>(std::pair<double,int> &&)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>
+          ]
+  d:\demo\cpp\演讲比赛系统\演讲比赛系统\speechmanager.cpp(165): note: 参见对正在编译的函数 模板 实例化“std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>> std::multimap<double,int,std::greater<int>,std::allocator<_Ty>>::insert<std::pair<double,int>,void>(_Valty &&)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Valty=std::pair<double,int>
+          ]
+  d:\demo\cpp\演讲比赛系统\演讲比赛系统\speechmanager.cpp(165): note: 参见对正在编译的函数 模板 实例化“std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>> std::multimap<double,int,std::greater<int>,std::allocator<_Ty>>::insert<std::pair<double,int>,void>(_Valty &&)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Valty=std::pair<double,int>
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1110): warning C4244: “参数”: 从“const double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1745): note: 参见对正在编译的函数 模板 实例化“bool std::_Debug_lt_pred<std::greater<int>&,const double&,const double&>(_Pr,_Ty1,_Ty2) noexcept(false)”的引用
+          with
+          [
+              _Pr=std::greater<int> &,
+              _Ty1=const double &,
+              _Ty2=const double &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1154): note: 参见对正在编译的函数 模板 实例化“std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,int,_Pr,_Alloc,true>>::_Insert_nohint<_Value_type&,std::_Tree_node<_Value_type,std::_Default_allocator_traits<_Alloc>::void_pointer>*>(bool,_Valty,_Nodety)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Kty=double,
+              _Pr=std::greater<int>,
+              _Alloc=std::allocator<std::pair<const double,int>>,
+              _Value_type=std::pair<const double,int>,
+              _Valty=std::pair<const double,int> &,
+              _Nodety=std::_Tree_node<std::pair<const double,int>,std::_Default_allocator_traits<std::allocator<std::pair<const double,int>>>::void_pointer> *
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1156): note: 参见对正在编译的函数 模板 实例化“std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,int,_Pr,_Alloc,true>>::_Insert_nohint<_Value_type&,std::_Tree_node<_Value_type,std::_Default_allocator_traits<_Alloc>::void_pointer>*>(bool,_Valty,_Nodety)”的引用
+          with
+          [
+              _Ty=std::pair<const double,int>,
+              _Kty=double,
+              _Pr=std::greater<int>,
+              _Alloc=std::allocator<std::pair<const double,int>>,
+              _Value_type=std::pair<const double,int>,
+              _Valty=std::pair<const double,int> &,
+              _Nodety=std::_Tree_node<std::pair<const double,int>,std::_Default_allocator_traits<std::allocator<std::pair<const double,int>>>::void_pointer> *
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1113): warning C4244: “参数”: 从“const double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+  演讲比赛系统.cpp
+  正在生成代码...
+  演讲比赛系统.vcxproj -> D:\demo\Cpp\演讲比赛系统\Debug\演讲比赛系统.exe
