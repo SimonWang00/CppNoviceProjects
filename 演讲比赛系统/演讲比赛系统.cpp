@@ -9,20 +9,21 @@ int main()
 	{
 		sm.show_menu();
 		int select = -1;
-		cout << "ÇëÊäÈë²½Öè£º" ;
+		cout << "è¯·è¾“å…¥æ­¥éª¤ï¼š" ;
 		cin >> select;
 		switch (select)
 		{
-		case 0:	//ÍË³öÏµÍ³
+		case 0:	//é€€å‡ºç³»ç»Ÿ
 			sm.exitSystem();
 			break;
-		case 1:	//¿ªÊ¼±ÈÈü
+		case 1:	//å¼€å§‹æ¯”èµ›
 			sm.startSpeech();
 			break;
-		case 2:	//²é¿´±ÈÈü¼ÇÂ¼
+		case 2:	//æŸ¥çœ‹æ¯”èµ›è®°å½•
 			sm.loadRecord();
+			sm.showRecord();
 			break;
-		case 3:	//Çå¿Õ¼ÇÂ¼
+		case 3:	//æ¸…ç©ºè®°å½•
 			sm.clearRecord();
 			break;
 		default:
