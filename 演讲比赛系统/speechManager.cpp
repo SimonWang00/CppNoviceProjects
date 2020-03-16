@@ -1,57 +1,61 @@
 #include "speechManager.h"
 
-////¹¹Ôìº¯Êı////
+////æ„é€ å‡½æ•°////
 SpeechManager::SpeechManager()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	this->initSpeech();
-	//´´½¨Ñ¡ÊÖ
+	//åˆ›å»ºé€‰æ‰‹
 	this->createSpeaker();
+	//åŠ å¾€å±Š
+	this->loadRecord();
+
 }
 
-////Îö¹¹º¯Êı////
+////ææ„å‡½æ•°////
 SpeechManager::~SpeechManager()
 {
 
 }
 
-////ÏÔÊ¾²Ëµ¥////
+////æ˜¾ç¤ºèœå•////
 void SpeechManager::show_menu()
 {
 	cout << "********************************************" << endl;
-	cout << "*************  »¶Ó­²Î¼ÓÑİ½²±ÈÈü ************" << endl;
-	cout << "*************  1.¿ªÊ¼Ñİ½²±ÈÈü  *************" << endl;
-	cout << "*************  2.²é¿´Íù½ì¼ÇÂ¼  *************" << endl;
-	cout << "*************  3.Çå¿Õ±ÈÈü¼ÇÂ¼  *************" << endl;
-	cout << "*************  0.ÍË³ö±ÈÈü³ÌĞò  *************" << endl;
+	cout << "*************  æ¬¢è¿å‚åŠ æ¼”è®²æ¯”èµ› ************" << endl;
+	cout << "*************  1.å¼€å§‹æ¼”è®²æ¯”èµ›  *************" << endl;
+	cout << "*************  2.æŸ¥çœ‹å¾€å±Šè®°å½•  *************" << endl;
+	cout << "*************  3.æ¸…ç©ºæ¯”èµ›è®°å½•  *************" << endl;
+	cout << "*************  0.é€€å‡ºæ¯”èµ›ç¨‹åº  *************" << endl;
 	cout << "********************************************" << endl;
 	cout << endl;
 }
 
-////ÍË³öÏµÍ³////
+////é€€å‡ºç³»ç»Ÿ////
 void SpeechManager::exitSystem()
 {
-	cout << "»¶Ó­ÏÂ´ÎÊ¹ÓÃ£¡" << endl;
+	cout << "æ¬¢è¿ä¸‹æ¬¡ä½¿ç”¨ï¼" << endl;
 	system("pause");
 	exit(0);
 }
 
-////ÈİÆ÷³õÊ¼»¯////
+////å®¹å™¨åˆå§‹åŒ–////
 void SpeechManager::initSpeech()
 {
 	this->v1.clear();
 	this->v2.clear();
 	this->vVictory.clear();
 	this->m_Index = 1;
+	this->m_Record.clear();
 }
 
-////´´½¨12ÃûÑ¡ÊÖ////
+////åˆ›å»º12åé€‰æ‰‹////
 void SpeechManager::createSpeaker()
 {
 	string nameSeed = "ABCDEFGHIJKL";
 	for (int i = 0; i < nameSeed.size(); i++)
 	{
-		string name = "Ñ¡ÊÖ";
+		string name = "é€‰æ‰‹";
 		name += nameSeed[i];
 
 		Speaker sp;
@@ -61,44 +65,50 @@ void SpeechManager::createSpeaker()
 			sp.m_Score[i] = 0;
 		}
 
-		//12ÃûÑ¡ÊÖ±àºÅ
+		//12åé€‰æ‰‹ç¼–å·
 		this->v1.push_back(i + 10001);
 
-		//Ñ¡ÊÖ±àºÅ ÒÔ¼°¶ÔÓ¦µÄÑ¡ÊÖ ´æ·Åµ½mapÈİÆ÷ÖĞ
+		//é€‰æ‰‹ç¼–å· ä»¥åŠå¯¹åº”çš„é€‰æ‰‹ å­˜æ”¾åˆ°mapå®¹å™¨ä¸­
 		this->m_Speaker.insert(make_pair(i + 10001, sp));
 	}
 }
 
-////¿ªÊ¼±ÈÈü////
+////å¼€å§‹æ¯”èµ›////
 void SpeechManager::startSpeech()
 {
-	////µÚ1ÂÖ////
-	//³éÇ©
+	////ç¬¬1è½®////
+	//æŠ½ç­¾
 	this->speechDraw();
-	//±ÈÈü
+	//æ¯”èµ›
 	this->speechContest();
-	//ÏÔÊ¾½á¹û
+	//æ˜¾ç¤ºç»“æœ
 	this->showScore();
 
-	////µÚ2ÂÖ////
+	////ç¬¬2è½®////
 	this->m_Index++;
-	//³éÇ©
+	//æŠ½ç­¾
 	this->speechDraw();
-	//±ÈÈü
+	//æ¯”èµ›
 	this->speechContest();
-	//ÏÔÊ¾½á¹û
+	//æ˜¾ç¤ºç»“æœ
 	this->showScore();
-	////±£´æ·ÖÊı////
+	////ä¿å­˜åˆ†æ•°////
 	this->saveRecord();
-	cout << "±¾½ì±ÈÈüÍê±Ï£¡" << endl;
+	////é‡ç½®æ¯”èµ›////
+	this->initSpeech();
+	////åˆ›å»ºé€‰æ‰‹////
+	this->createSpeaker();
+	////åŠ å¾€å±Šæ•°æ®////
+	this->loadRecord();
+	cout << "æœ¬å±Šæ¯”èµ›å®Œæ¯•ï¼" << endl;
 }
 
-////³éÇ©////
+////æŠ½ç­¾////
 void SpeechManager::speechDraw()
 {
-	cout << "µÚ << " << this->m_Index << " >> ÂÖ±ÈÈüÑ¡ÊÖÕıÔÚ³éÇ©" << endl;
+	cout << "ç¬¬ << " << this->m_Index << " >> è½®æ¯”èµ›é€‰æ‰‹æ­£åœ¨æŠ½ç­¾" << endl;
 	cout << "---------------------" << endl;
-	cout << "³éÇ©ºóÑİ½²Ë³ĞòÈçÏÂ£º" << endl;
+	cout << "æŠ½ç­¾åæ¼”è®²é¡ºåºå¦‚ä¸‹ï¼š" << endl;
 	if (this->m_Index == 1)
 	{
 		random_shuffle(v1.begin(), v1.end());
@@ -122,13 +132,13 @@ void SpeechManager::speechDraw()
 	cout << endl;
 }
 
-////±ÈÈü////
+////æ¯”èµ›////
 void SpeechManager::speechContest()
 {
-	cout << "------------- µÚ" << this->m_Index << "ÂÖÕıÊ½±ÈÈü¿ªÊ¼£º------------- " << endl;
-	multimap<double, int, greater<int>> groupScore; //ÁÙÊ±ÈİÆ÷£¬±£´ækey·ÖÊı value Ñ¡ÊÖ±àºÅ
-	int num = 0; //¼ÇÂ¼ÈËÔ±Êı£¬6¸öÎª1×é
-	vector <int>v_Src;   //±ÈÈüµÄÈËÔ±ÈİÆ÷
+	cout << "------------- ç¬¬" << this->m_Index << "è½®æ­£å¼æ¯”èµ›å¼€å§‹ï¼š------------- " << endl;
+	multimap<double, int, greater<int>> groupScore; //ä¸´æ—¶å®¹å™¨ï¼Œä¿å­˜keyåˆ†æ•° value é€‰æ‰‹ç¼–å·
+	int num = 0; //è®°å½•äººå‘˜æ•°ï¼Œ6ä¸ªä¸º1ç»„
+	vector <int>v_Src;   //æ¯”èµ›çš„äººå‘˜å®¹å™¨
 	if (this->m_Index == 1)
 	{
 		v_Src = v1;
@@ -137,11 +147,11 @@ void SpeechManager::speechContest()
 	{
 		v_Src = v2;
 	}
-	//±éÀúËùÓĞ²ÎÈüÑ¡ÊÖ
+	//éå†æ‰€æœ‰å‚èµ›é€‰æ‰‹
 	for (vector<int>::iterator it = v_Src.begin(); it != v_Src.end(); it++)
 	{
 		num++;
-		//ÆÀÎ¯´ò·Ö
+		//è¯„å§”æ‰“åˆ†
 		deque<double>d;
 		for (int i = 0; i < 10; i++)
 		{
@@ -150,28 +160,28 @@ void SpeechManager::speechContest()
 			d.push_back(score);
 		}
 
-		sort(d.begin(), d.end(), greater<double>());				//ÅÅĞò
-		d.pop_front();												//È¥µô×î¸ß·Ö
-		d.pop_back();												//È¥µô×îµÍ·Ö
+		sort(d.begin(), d.end(), greater<double>());				//æ’åº
+		d.pop_front();												//å»æ‰æœ€é«˜åˆ†
+		d.pop_back();												//å»æ‰æœ€ä½åˆ†
 
-		double sum = accumulate(d.begin(), d.end(), 0.0f);				//»ñÈ¡×Ü·Ö
-		double avg = sum / (double)d.size();									//»ñÈ¡Æ½¾ù·Ö
+		double sum = accumulate(d.begin(), d.end(), 0.0f);				//è·å–æ€»åˆ†
+		double avg = sum / (double)d.size();									//è·å–å¹³å‡åˆ†
 
-		//Ã¿¸öÈËÆ½¾ù·Ö
-		//cout << "±àºÅ£º " << *it  << " Ñ¡ÊÖ£º " << this->m_Speaker[*it].m_Name << " »ñÈ¡Æ½¾ù·ÖÎª£º " << avg << endl;  //´òÓ¡·ÖÊı
+		//æ¯ä¸ªäººå¹³å‡åˆ†
+		//cout << "ç¼–å·ï¼š " << *it  << " é€‰æ‰‹ï¼š " << this->m_Speaker[*it].m_Name << " è·å–å¹³å‡åˆ†ä¸ºï¼š " << avg << endl;  //æ‰“å°åˆ†æ•°
 		this->m_Speaker[*it].m_Score[this->m_Index - 1] = avg;
 
-		//6¸öÈËÒ»×é£¬ÓÃÁÙÊ±ÈİÆ÷±£´æ
+		//6ä¸ªäººä¸€ç»„ï¼Œç”¨ä¸´æ—¶å®¹å™¨ä¿å­˜
 		groupScore.insert(make_pair(avg, *it));
 		if (num % 6 == 0)
 		{
-			cout << "µÚ" << num / 6 << "Ğ¡×é±ÈÈüÃû´Î£º" << endl;
+			cout << "ç¬¬" << num / 6 << "å°ç»„æ¯”èµ›åæ¬¡ï¼š" << endl;
 			for (multimap<double, int, greater<int>>::iterator it = groupScore.begin(); it != groupScore.end(); it++)
 			{
-				cout << "±àºÅ: " << it->second << " ĞÕÃû£º " << this->m_Speaker[it->second].m_Name << " ³É¼¨£º " << this->m_Speaker[it->second].m_Score[this->m_Index - 1] << endl;
+				cout << "ç¼–å·: " << it->second << " å§“åï¼š " << this->m_Speaker[it->second].m_Name << " æˆç»©ï¼š " << this->m_Speaker[it->second].m_Score[this->m_Index - 1] << endl;
 			}
 			int count = 0;
-			//È¡Ç°ÈıÃû
+			//å–å‰ä¸‰å
 			for (multimap<double, int, greater<int>>::iterator it = groupScore.begin(); it != groupScore.end() && count < 3; it++, count++)
 			{
 				if (this->m_Index == 1)
@@ -187,14 +197,14 @@ void SpeechManager::speechContest()
 			cout << endl;
 		}
 	}
-	cout << "------------- µÚ" << this->m_Index << "ÂÖ±ÈÈüÍê±Ï  ------------- " << endl;
+	cout << "------------- ç¬¬" << this->m_Index << "è½®æ¯”èµ›å®Œæ¯•  ------------- " << endl;
 	system("pause");
 }
 
-////ÏÔÊ¾·ÖÊı////
+////æ˜¾ç¤ºåˆ†æ•°////
 void SpeechManager::showScore()
 {
-	cout << "---------µÚ" << this->m_Index << "ÂÖ½ú¼¶Ñ¡ÊÖĞÅÏ¢ÈçÏÂ£º-----------" << endl;
+	cout << "---------ç¬¬" << this->m_Index << "è½®æ™‹çº§é€‰æ‰‹ä¿¡æ¯å¦‚ä¸‹ï¼š-----------" << endl;
 	vector<int>v;
 	if (this->m_Index == 1)
 	{
@@ -207,7 +217,7 @@ void SpeechManager::showScore()
 
 	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
 	{
-		cout << "Ñ¡ÊÖ±àºÅ£º" << *it << " ĞÕÃû£º " << m_Speaker[*it].m_Name << " µÃ·Ö£º " << m_Speaker[*it].m_Score[this->m_Index - 1] << endl;
+		cout << "é€‰æ‰‹ç¼–å·ï¼š" << *it << " å§“åï¼š " << m_Speaker[*it].m_Name << " å¾—åˆ†ï¼š " << m_Speaker[*it].m_Score[this->m_Index - 1] << endl;
 	}
 	cout << endl;
 
@@ -216,13 +226,13 @@ void SpeechManager::showScore()
 	this->show_menu();
 }
 
-////±£´æ¼ÇÂ¼////
+////ä¿å­˜è®°å½•////
 void SpeechManager::saveRecord()
 {
 	ofstream ofs;
-	ofs.open("speech.csv", ios::out | ios::app); // ÓÃÊä³öµÄ·½Ê½´ò¿ªÎÄ¼ş  -- Ğ´ÎÄ¼ş
+	ofs.open("speech.csv", ios::out | ios::app); // ç”¨è¾“å‡ºçš„æ–¹å¼æ‰“å¼€æ–‡ä»¶  -- å†™æ–‡ä»¶
 
-	//½«Ã¿¸öÈËÊı¾İĞ´Èëµ½ÎÄ¼şÖĞ
+	//å°†æ¯ä¸ªäººæ•°æ®å†™å…¥åˆ°æ–‡ä»¶ä¸­
 	for (vector<int>::iterator it = vVictory.begin(); it != vVictory.end(); it++)
 	{
 		ofs << *it << ","
@@ -230,20 +240,20 @@ void SpeechManager::saveRecord()
 	}
 	ofs << endl;
 
-	//¹Ø±ÕÎÄ¼ş
+	//å…³é—­æ–‡ä»¶
 	ofs.close();
 
-	cout << "¼ÇÂ¼ÒÑ¾­±£´æ" << endl;
+	cout << "è®°å½•å·²ç»ä¿å­˜" << endl;
 }
 
 void SpeechManager::loadRecord()
 {
-	ifstream ifs("speech.csv", ios::in); //ÊäÈëÁ÷¶ÔÏó ¶ÁÈ¡ÎÄ¼ş
+	ifstream ifs("speech.csv", ios::in); //è¾“å…¥æµå¯¹è±¡ è¯»å–æ–‡ä»¶
 
 	if (!ifs.is_open())
 	{
 		this->fileIsEmpty = true;
-		cout << "ÎÄ¼ş²»´æÔÚ£¡" << endl;
+		cout << "æ–‡ä»¶ä¸å­˜åœ¨ï¼" << endl;
 		ifs.close();
 		return;
 	}
@@ -252,16 +262,16 @@ void SpeechManager::loadRecord()
 	ifs >> ch;
 	if (ifs.eof())
 	{
-		cout << "ÎÄ¼şÎª¿Õ!" << endl;
+		cout << "æ–‡ä»¶ä¸ºç©º!" << endl;
 		this->fileIsEmpty = true;
 		ifs.close();
 		return;
 	}
 
-	//ÎÄ¼ş²»Îª¿Õ
+	//æ–‡ä»¶ä¸ä¸ºç©º
 	this->fileIsEmpty = false;
 
-	ifs.putback(ch); //¶ÁÈ¡µÄµ¥¸ö×Ö·û·Å»ØÈ¥
+	ifs.putback(ch); //è¯»å–çš„å•ä¸ªå­—ç¬¦æ”¾å›å»
 
 	string data;
 	int index = 0;
@@ -275,12 +285,12 @@ void SpeechManager::loadRecord()
 
 		while (true)
 		{
-			pos = data.find(",", start); //´Ó0¿ªÊ¼²éÕÒ ','
+			pos = data.find(",", start); //ä»0å¼€å§‹æŸ¥æ‰¾ ','
 			if (pos == -1)
 			{
-				break; //ÕÒ²»µ½break·µ»Ø
+				break; //æ‰¾ä¸åˆ°breakè¿”å›
 			}
-			string tmp = data.substr(start, pos - start); //ÕÒµ½ÁË,½øĞĞ·Ö¸î ²ÎÊı1 ÆğÊ¼Î»ÖÃ£¬²ÎÊı2 ½ØÈ¡³¤¶È
+			string tmp = data.substr(start, pos - start); //æ‰¾åˆ°äº†,è¿›è¡Œåˆ†å‰² å‚æ•°1 èµ·å§‹ä½ç½®ï¼Œå‚æ•°2 æˆªå–é•¿åº¦
 			v.push_back(tmp);
 			start = pos + 1;
 		}
@@ -295,10 +305,10 @@ void SpeechManager::showRecord()
 {
 	for (int i = 0; i < this->m_Record.size(); i++)
 	{
-		cout << "µÚ" << i + 1 << "½ì " <<
-			"¹Ú¾ü±àºÅ£º" << this->m_Record[i][0] << " µÃ·Ö£º" << this->m_Record[i][1] << " "
-			"ÑÇ¾ü±àºÅ£º" << this->m_Record[i][2] << " µÃ·Ö£º" << this->m_Record[i][3] << " "
-			"¼¾¾ü±àºÅ£º" << this->m_Record[i][4] << " µÃ·Ö£º" << this->m_Record[i][5] << endl;
+		cout << "ç¬¬" << i + 1 << "å±Š " <<
+			"å† å†›ç¼–å·ï¼š" << this->m_Record[i][0] << " å¾—åˆ†ï¼š" << this->m_Record[i][1] << " "
+			"äºšå†›ç¼–å·ï¼š" << this->m_Record[i][2] << " å¾—åˆ†ï¼š" << this->m_Record[i][3] << " "
+			"å­£å†›ç¼–å·ï¼š" << this->m_Record[i][4] << " å¾—åˆ†ï¼š" << this->m_Record[i][5] << endl;
 	}
 	system("pause");
 	system("cls");
@@ -306,30 +316,29 @@ void SpeechManager::showRecord()
 
 void SpeechManager::clearRecord()
 {
-	cout << "È·ÈÏÇå¿Õ£¿" << endl;
-	cout << "1¡¢È·ÈÏ" << endl;
-	cout << "2¡¢·µ»Ø" << endl;
+	cout << "ç¡®è®¤æ¸…ç©ºï¼Ÿ" << endl;
+	cout << "1ã€ç¡®è®¤" << endl;
+	cout << "2ã€è¿”å›" << endl;
 
 	int select = 0;
 	cin >> select;
 
 	if (select == 1)
 	{
-		//´ò¿ªÄ£Ê½ ios::trunc Èç¹û´æÔÚÉ¾³ıÎÄ¼ş²¢ÖØĞÂ´´½¨
+		//æ‰“å¼€æ¨¡å¼ ios::trunc å¦‚æœå­˜åœ¨åˆ é™¤æ–‡ä»¶å¹¶é‡æ–°åˆ›å»º
 		ofstream ofs("speech.csv", ios::trunc);
 		ofs.close();
 
-		//³õÊ¼»¯ÊôĞÔ
+		//åˆå§‹åŒ–å±æ€§
 		this->initSpeech();
 
-		//´´½¨Ñ¡ÊÖ
+		//åˆ›å»ºé€‰æ‰‹
 		this->createSpeaker();
 
-		//»ñÈ¡Íù½ì¼ÇÂ¼
+		//è·å–å¾€å±Šè®°å½•
 		this->loadRecord();
 
-
-		cout << "Çå¿Õ³É¹¦£¡" << endl;
+		cout << "æ¸…ç©ºæˆåŠŸï¼" << endl;
 	}
 	system("pause");
 	system("cls");
